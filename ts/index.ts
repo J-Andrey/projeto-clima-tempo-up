@@ -30,6 +30,7 @@ form?.addEventListener("submit", async (event) => {
             const cidade = dadosCEP.localidade;
             const estado = dadosCEP.uf;
             const rua = dadosCEP.logradouro;
+            const bairro = dadosCEP.bairro;
 
             // Consultar API OpenWeatherMap
             const respostaTempo = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade},${estado},BR&appid=${API_KEY}&lang=pt_br&units=metric`);
@@ -51,6 +52,7 @@ form?.addEventListener("submit", async (event) => {
             enderecoInfo.innerHTML = `
                 <h3>Endereço:</h3>
                 <p>Rua: ${rua}</p>
+                <p>Bairro: ${bairro}</p>
                 <p>Cidade: ${cidade}</p>
                 <p>Estado: ${estado}</p>
                 <h3>Clima:</h3>
